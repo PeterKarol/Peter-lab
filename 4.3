@@ -2,22 +2,10 @@
 using namespace std;
 
 int main(){
-   double a,b; // il fallait mettre une virgule entre a et b
-   cout<<"entrer la valeur de la longueur du rectangle\n"; // \n permet d'aller à la ligne
-   cin >>a;
-   cout<<"entrer la valeur de la largeur du rectangle\n";
-   cin >>b;
-   if((a<0) ||(b<0)) // ces deux barres ||  veulent dire 'ou'
-   {
-       cout << "erreurs\n";  // quan tu fais un cout , ce qui suit doit être mis entre guillemets ""  quand c'est du texte
-
-   }
-   else
-   {
-       cout<<"le perimetre du rectangle est:"<<(a+b)*2;
-       cout <<"\nl'air de la surface est:"<<(a*b);
-
-   }
-
-
+    double a, b;
+    cout<<"entrer la premiere valeur\n"; //évite les accents , l'affichage est pas très beau ! ;) Ce site ne gère pas les accents
+    cin>>a;  // en C++ il faut finir toutes les instructions sauf la ligne de if et else par une virgule;
+    cout<<"entrer la deuxieme valeur\n"; // met souvent le \n pour un plus bel affichage ! sur plusieurs lignes ... et non tout sur une même ligne...
+    cin>>b;
+    cout<<"la moyenne arithmetique des nombres est: "<<(a+b)/2;
 }
