@@ -1,36 +1,39 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-remove_element(int a[],int &n,int position){
-	for(int i=position;i<=n;i++){
-		a[i]=a[i+1];
-	}
-	n--;
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    cout << "Введите размер массива: ";
+    int n;
+    cin >> n;
+    int n1 = n;
+    int* N = new int[n];
+
+    cout << "Введите элементы массива: ";
+    for (int i = 0; i < n; i++)
+        cin >> N[i];
+
+    for (int i = 0; i < n1; i++)
+    {
+        if (N[i] == N[i+1])
+        {
+            n1--;
+            for (int j = i+1; j < n; j++)
+            {
+                swap(N[j], N[j + 1]);
+            }
+            i--;
+        }
+    }
+
+    int* A = new int[n1];
+
+    for (int j = 0; j < n1; j++)
+        A[j] = N[j];
+
+    cout << "Новый массив: ";
+    for (int i = 0; i < n1; i++)
+        cout << A[i] << " ";
 }
-remove_duplicate_elements(int a[],int &n){
-	for(int i=1;i<=n;i++){
-		for(int j=i+1;j<=n;j++){
-			if(a[i]==a[j]){
-				remove_element(a,n,j);
-			}
-		}
-	}
-}
-main(){
-	int a[1000],n,i;
-	cout<<"enter the size of the array n(n>=1): "; cin>>n;
-	for(i=1;i<=n;i++){
-		cout<<"enter value a"<<i<<" "; cin>>a[i];
-	}
-	if(n<1){ cout<<"error(please enter n>=1)";
-	}else{
-		cout<<"the array: ";
-		for(i=1;i<=n;i++){
-			cout<<a[i]<<" ";
-		}
-		cout<<"\nthe array after removing all neighboring identical elements,leaving their first occurrences: ";
-		remove_duplicate_elements(a,n);
-		for(i=1;i<=n;i++){
-			cout<<a[i]<<" ";
-		}
-	}
-}
+
